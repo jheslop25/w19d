@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <p class="h4">Choose Your Move!</p>
-    <div class="row justify-content-around">
+    <div class="row justify-content-around px-2">
         <img class="img-fluid col-4 size rounded" :src="getImg(2)" alt />
         <img class="img-fluid col-4 size rounded" :src="getImg(1)" alt />
         <img class="img-fluid col-4 size rounded" :src="getImg(3)" alt />

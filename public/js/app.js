@@ -38191,7 +38191,7 @@ var render = function() {
   return _c("div", { staticClass: "card" }, [
     _c("p", { staticClass: "h4" }, [_vm._v("Choose Your Move!")]),
     _vm._v(" "),
-    _c("div", { staticClass: "row justify-content-around" }, [
+    _c("div", { staticClass: "row justify-content-around px-2" }, [
       _c("img", {
         staticClass: "img-fluid col-4 size rounded",
         attrs: { src: _vm.getImg(2), alt: "" }
@@ -38272,9 +38272,9 @@ var render = function() {
       _vm._v(" "),
       _c("Score"),
       _vm._v(" "),
-      _c("Player"),
+      _c("Comp"),
       _vm._v(" "),
-      _c("Comp")
+      _c("Player")
     ],
     1
   )

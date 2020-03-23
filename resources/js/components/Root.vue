@@ -3,8 +3,8 @@
         <p class="h3">Welcome to DWAYNE, MIKE, and EDWARD!</p>
         <p>The classic game with a hollywood twist!</p>
         <Score />
-        <Player />
         <Comp />
+        <Player />
     </div>
 </template>
 
