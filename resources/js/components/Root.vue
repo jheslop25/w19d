@@ -1,6 +1,7 @@
 <template>
     <div class="container">
-        <p>rock paper scissors</p>
+        <p class="h3">Welcome to DWAYNE, MIKE, and EDWARD!</p>
+        <p>The classic game with a hollywood twist!</p>
         <Score />
         <Player />
         <Comp />

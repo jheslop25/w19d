@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <p>this is the score: Player: {{ playerScore }} Computer: {{ compScore }}</p>
+    <div class="card m-3 p-3">
+        <p class="h4">This is the score: Player: {{ playerScore }} Computer: {{ compScore }}</p>
     </div>
 </template>
 
@@ -10,7 +10,8 @@
         data: function(){
             return {
                 playerScore: 0,
-                compScore: 0
+                compScore: 0,
+                source: "https://cdn.vox-cdn.com/thumbor/2x9_1fkAr5Lh-IP_nWqStNfaz_g=/1400x1400/filters:format(png)/cdn.vox-cdn.com/uploads/chorus_asset/file/16283328/Screen_Shot_2019_05_17_at_11.48.34_AM.png"
             }
         },
         mounted: function(){

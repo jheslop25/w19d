@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <p>this is the computer player</p>
+    <div class="card">
+        <p class="h4">The Computer Counters with: {{ move }}</p>
     </div>
 </template>
 
