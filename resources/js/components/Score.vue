@@ -19,17 +19,35 @@
             this.$root.$on('cutCutCUT', this.trimTheHedges);
         },
         methods: {
-            rockTheWorld: function(){
-                console.log('this is the rock');
+            rockTheWorld: function(compMove){
+                console.log('this is the rock' + compMove);
             },
-            prisonMike: function(){
-                console.log("i dont think that was offensive was it?");
+            prisonMike: function(compMove){
+                console.log("i dont think that was offensive was it?"+ compMove);
             },
-            trimTheHedges: function(){
-                console.log("I am an uncommonly gentle man");
+            trimTheHedges: function(compMove){
+                console.log("I am an uncommonly gentle man"+ compMove);
             },
             theBrain: function(player, comp){
-
+                if(player == 'rock' && comp == 'scissors'){
+                    console.log('player wins');
+                }else if(player == 'rock' && comp == 'paper'){
+                    console.log('comp wins');
+                }else if(player == 'rock' && comp == 'rock'){
+                    console.log('this was a draw');
+                }else if(player == 'paper' && comp == 'scissors'){
+                    console.log('comp wins');
+                }else if(player == 'paper' && comp == 'rock'){
+                    console.log('player wins');
+                }else if(player == 'paper' && comp == 'paper'){
+                    console.log('this was a draw');
+                }else if(player == 'scissors' && comp == 'rock'){
+                    console.log('comp wins');
+                }else if(player == 'scissors' && comp == 'paper'){
+                    console.log('player wins');
+                }else if(player == 'scissors' && comp == 'scissors'){
+                    console.log('this was a draw');
+                }
             }
         }
     }

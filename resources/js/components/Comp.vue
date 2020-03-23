@@ -17,12 +17,18 @@
                 axios.get('/playrps')
                 .then(response =>{
                     console.log(response.data.move);
+                    return response.data.move;
                 })
             },
             rockOn: function(){
                 console.log('this is the rock on function');
-                let compMove = this.ajaxCall();
-                this.$root.$emit('rockLobster', compMove);
+                let compMove = axios.get('/playrps')
+                .then(response =>{
+                    console.log(response.data.move);
+                    return response.data.move;
+                });
+                console.log(compMove);
+                this.$root.$emit('rockLobster', this.ajaxCall());
             },
             pushPaper: function(){
                 console.log('this is paper pusher');
