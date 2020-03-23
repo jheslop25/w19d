@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p>this is the score: {{ playerScore }} {{ compScore }}</p>
+        <p>this is the score: Player: {{ playerScore }} Computer: {{ compScore }}</p>
     </div>
 </template>
 
@@ -9,8 +9,8 @@
         name: 'Score',
         data: function(){
             return {
-                playerScore: 'Player Score: 0',
-                compScore: 'Computer Score: 0'
+                playerScore: 0,
+                compScore: 0
             }
         },
         mounted: function(){
@@ -20,31 +20,43 @@
         },
         methods: {
             rockTheWorld: function(compMove){
-                console.log('this is the rock' + compMove);
+                let player = 'rock';
+                let result = this.theBrain(player, compMove);
+                console.log(result);
             },
             prisonMike: function(compMove){
-                console.log("i dont think that was offensive was it?"+ compMove);
+                let player = 'paper';
+                let result = this.theBrain(player, compMove);
+                console.log(result);
             },
             trimTheHedges: function(compMove){
-                console.log("I am an uncommonly gentle man"+ compMove);
+                let player = 'scissors';
+                let result = this.theBrain(player, compMove);
+                console.log(result);
             },
             theBrain: function(player, comp){
                 if(player == 'rock' && comp == 'scissors'){
                     console.log('player wins');
+                    this.playerScore ++;
                 }else if(player == 'rock' && comp == 'paper'){
                     console.log('comp wins');
+                    this.compScore++;
                 }else if(player == 'rock' && comp == 'rock'){
                     console.log('this was a draw');
                 }else if(player == 'paper' && comp == 'scissors'){
                     console.log('comp wins');
+                    this.compScore++;
                 }else if(player == 'paper' && comp == 'rock'){
                     console.log('player wins');
+                    this.playerScore ++;
                 }else if(player == 'paper' && comp == 'paper'){
                     console.log('this was a draw');
                 }else if(player == 'scissors' && comp == 'rock'){
                     console.log('comp wins');
+                    this.compScore++;
                 }else if(player == 'scissors' && comp == 'paper'){
                     console.log('player wins');
+                    this.playerScore ++;
                 }else if(player == 'scissors' && comp == 'scissors'){
                     console.log('this was a draw');
                 }

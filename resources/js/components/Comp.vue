@@ -22,23 +22,36 @@
             },
             rockOn: function(){
                 console.log('this is the rock on function');
-                let compMove = axios.get('/playrps')
+                //let compMove = this;
+                axios.get('/playrps')
                 .then(response =>{
-                    console.log(response.data.move);
-                    return response.data.move;
+                    console.log(response.data.move + 'hello');
+                    this.move = response.data.move;
+                    this.$root.$emit('rockLobster', this.move);
                 });
-                console.log(compMove);
-                this.$root.$emit('rockLobster', this.ajaxCall());
             },
             pushPaper: function(){
                 console.log('this is paper pusher');
-                let compMove = this.ajaxCall();
-                this.$root.$emit('dunderMiflin', compMove);
+                axios.get('/playrps')
+                .then(response =>{
+                    console.log(response.data.move + 'hello');
+                    this.move = response.data.move;
+                    this.$root.$emit('dunderMiflin', this.move);
+                });
             },
             thatCuts: function(){
                 console.log('edward scissor hands');
-                let compMove = this.ajaxCall();
-                this.$root.$emit('cutCutCUT', compMove);
+                axios.get('/playrps')
+                .then(response =>{
+                    console.log(response.data.move + 'hello');
+                    this.move = response.data.move;
+                    this.$root.$emit('cutCutCUT', this.move);
+                });
+            }
+        },
+        data: function(){
+            return {
+                move: ''
             }
         }
     }

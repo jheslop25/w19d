@@ -1929,24 +1929,44 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     rockOn: function rockOn() {
-      console.log('this is the rock on function');
-      var compMove = axios.get('/playrps').then(function (response) {
-        console.log(response.data.move);
-        return response.data.move;
+      var _this = this;
+
+      console.log('this is the rock on function'); //let compMove = this;
+
+      axios.get('/playrps').then(function (response) {
+        console.log(response.data.move + 'hello');
+        _this.move = response.data.move;
+
+        _this.$root.$emit('rockLobster', _this.move);
       });
-      console.log(compMove);
-      this.$root.$emit('rockLobster', this.ajaxCall());
     },
     pushPaper: function pushPaper() {
+      var _this2 = this;
+
       console.log('this is paper pusher');
-      var compMove = this.ajaxCall();
-      this.$root.$emit('dunderMiflin', compMove);
+      axios.get('/playrps').then(function (response) {
+        console.log(response.data.move + 'hello');
+        _this2.move = response.data.move;
+
+        _this2.$root.$emit('dunderMiflin', _this2.move);
+      });
     },
     thatCuts: function thatCuts() {
+      var _this3 = this;
+
       console.log('edward scissor hands');
-      var compMove = this.ajaxCall();
-      this.$root.$emit('cutCutCUT', compMove);
+      axios.get('/playrps').then(function (response) {
+        console.log(response.data.move + 'hello');
+        _this3.move = response.data.move;
+
+        _this3.$root.$emit('cutCutCUT', _this3.move);
+      });
     }
+  },
+  data: function data() {
+    return {
+      move: ''
+    };
   }
 }); //listen for player move, then make ajax request for move,
 // then pass moves to score component
@@ -2050,8 +2070,8 @@ __webpack_require__.r(__webpack_exports__);
   name: 'Score',
   data: function data() {
     return {
-      playerScore: 'Player Score: 0',
-      compScore: 'Computer Score: 0'
+      playerScore: 0,
+      compScore: 0
     };
   },
   mounted: function mounted() {
@@ -2061,31 +2081,43 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     rockTheWorld: function rockTheWorld(compMove) {
-      console.log('this is the rock' + compMove);
+      var player = 'rock';
+      var result = this.theBrain(player, compMove);
+      console.log(result);
     },
     prisonMike: function prisonMike(compMove) {
-      console.log("i dont think that was offensive was it?" + compMove);
+      var player = 'paper';
+      var result = this.theBrain(player, compMove);
+      console.log(result);
     },
     trimTheHedges: function trimTheHedges(compMove) {
-      console.log("I am an uncommonly gentle man" + compMove);
+      var player = 'scissors';
+      var result = this.theBrain(player, compMove);
+      console.log(result);
     },
     theBrain: function theBrain(player, comp) {
       if (player == 'rock' && comp == 'scissors') {
         console.log('player wins');
+        this.playerScore++;
       } else if (player == 'rock' && comp == 'paper') {
         console.log('comp wins');
+        this.compScore++;
       } else if (player == 'rock' && comp == 'rock') {
         console.log('this was a draw');
       } else if (player == 'paper' && comp == 'scissors') {
         console.log('comp wins');
+        this.compScore++;
       } else if (player == 'paper' && comp == 'rock') {
         console.log('player wins');
+        this.playerScore++;
       } else if (player == 'paper' && comp == 'paper') {
         console.log('this was a draw');
       } else if (player == 'scissors' && comp == 'rock') {
         console.log('comp wins');
+        this.compScore++;
       } else if (player == 'scissors' && comp == 'paper') {
         console.log('player wins');
+        this.playerScore++;
       } else if (player == 'scissors' && comp == 'scissors') {
         console.log('this was a draw');
       }
@@ -37580,9 +37612,9 @@ var render = function() {
   return _c("div", [
     _c("p", [
       _vm._v(
-        "this is the score: " +
+        "this is the score: Player: " +
           _vm._s(_vm.playerScore) +
-          " " +
+          " Computer: " +
           _vm._s(_vm.compScore)
       )
     ])
